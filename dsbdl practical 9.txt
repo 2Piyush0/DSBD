@@ -1,0 +1,27 @@
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+df=sns.load_dataset('titanic')
+df.head()
+
+df.dropna(subset=['age'],inplace=True)
+
+sns.boxplot(x='sex',y='age',data=df,hue='survived')
+
+sns.histplot(df['fare'],kde=True,bins=10)
+
+sns.barplot(x='sex',y='age',data=df)
+
+sns.swarmplot(x='sex',y='age',data=df,hue='survived')
+
+corr=df.corr()
+sns.heatmap(corr,annot=True)
+
+sns.rugplot(df['fare'])
+
+sns.countplot(x='sex',data=df)
+
+sns.violinplot(x='sex',y='age',data=df,hue='survived')
+
